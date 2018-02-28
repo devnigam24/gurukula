@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('timer');
+  this.route('async-await');
 });
 
 export default Router;
