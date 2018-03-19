@@ -1,22 +1,27 @@
-"use strict";
+import Route from '@ember/routing/route';
+import { hash, Promise } from 'rsvp';
+import { debug, warn } from '@ember/debug';
 
-import Ember from 'ember';
-
-export default Ember.Route.extend({
+export default Route.extend({
 
   beforeModel() {
-    console.log('beforeModel');
+    console.clear();
+    debug('debug beforeModel');
+    warn('warn beforeModel');
+    // log('log beforeModel');
+    // error('error beforeModel');
+    // info('info beforeModel');
   },
 
   model() {
-    return Ember.RSVP.hash({
+    return hash({
       testArray: ['1', '2', '3', 'a', 'z'],
       testText: this.fastFunction(3.5)
     });
   },
 
   afterModel() {
-    console.log('afterModel');
+    // debug('debug afterModel');
   },
 
   slowfunction(seconds) {
@@ -30,7 +35,6 @@ export default Ember.Route.extend({
 
   async fastFunction(seconds) {
     const text = await this.slowfunction(seconds);
-    console.log(text);
     return text;
   }
 
