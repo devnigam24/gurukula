@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:html-safe', 'Unit | Route | html safe', {
+moduleFor('route:ember-logger', 'Unit | Route | ember logger', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });
