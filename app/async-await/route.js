@@ -1,33 +1,21 @@
 import Route from '@ember/routing/route';
-import { hash, Promise } from 'rsvp';
-import { debug, warn } from '@ember/debug';
+import { Promise } from 'rsvp';
+import logger from 'gurukula/helpers/logger';
 
 export default Route.extend({
 
-  beforeModel() {
-    console.clear();
-    debug('debug beforeModel');
-    warn('warn beforeModel');
-    // log('log beforeModel');
-    // error('error beforeModel');
-    // info('info beforeModel');
-  },
-
   model() {
-    return hash({
-      testArray: ['1', '2', '3', 'a', 'z'],
-      testText: this.fastFunction(3.5)
-    });
+    return this.fastFunction(1);
   },
 
   afterModel() {
-    // debug('debug afterModel');
+    logger.log('async await route complete');
   },
 
   slowfunction(seconds) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve('response text test that was late');
+        resolve('response text that was late');
         reject('error getting text');
       }, Number.parseInt(seconds) * 1000);
     });

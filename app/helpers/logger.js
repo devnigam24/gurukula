@@ -1,7 +1,6 @@
 import {
   debug
 } from '@ember/debug';
-import EmberError from '@ember/error';
 
 class logger {
 

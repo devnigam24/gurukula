@@ -9,6 +9,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('async-await');
   this.route('ember-logger');
+  this.route('flex-box');
 });
 
 export default Router;
