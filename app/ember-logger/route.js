@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import logger from 'gurukula/helpers/logger'
+import logger from 'gurukula/utils/logger'
 
 export default Route.extend({
   model() {

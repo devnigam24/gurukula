@@ -1,14 +1,19 @@
 import Route from "@ember/routing/route";
-import logger from "gurukula/helpers/logger";
+import logger from "gurukula/utils/logger";
 import $ from 'jquery';
 
 export default Route.extend({
+
+  beforeModel() {
+    logger.log("async await route beforeModel");
+  },
+
   model() {
     return this.fastFunction(1);
   },
 
   afterModel() {
-    logger.log("async await route complete");
+    logger.log("async await route afterModel");
   },
 
   slowfunction(seconds) {
@@ -16,14 +21,7 @@ export default Route.extend({
   },
 
   async fastFunction(seconds) {
-    const text = await this.slowfunction(seconds);
-    logger.log(text);
-    return text;
-  },
-
-  actions: {
-    modifyModel() {
-      this.refresh();
-    }
+    return await this.slowfunction(seconds);
   }
+
 });

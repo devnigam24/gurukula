@@ -1,11 +1,5 @@
-import Ember from "ember";
-import logger from "gurukula/helpers/logger";
+import Component from "@ember/component";
 
-export default Ember.Component.extend({
-  tagName: "header",
-  actions: {
-    changeModel() {
-      logger.log("called");
-    }
-  }
+export default Component.extend({
+  tagName: "header"
 });
